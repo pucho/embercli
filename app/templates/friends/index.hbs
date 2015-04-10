@@ -1,0 +1,23 @@
+<table class="primary">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Articles</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each friend in model}}
+		<tr>
+			<td>
+				{{link-to friend.fullName "articles" friend}}
+			</td>
+			<td>{{friend.titalArticles}}</td>
+			<td><a href="#" {{action "delete" friend}}>Delete</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+
+
