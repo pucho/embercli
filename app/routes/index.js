@@ -2,11 +2,15 @@ import Ember from 'ember';
 import request from 'ic-ajax';
 
 export default Ember.Route.extend({
+	queryParams: {
+		sortBy: {
+			refreshModel: true
+		},
+		sortAscending: {
+			refreshModle: true
+		}
+	},
 	model: function() {
-		return request('/api/friends').then(function(data){
-			return {
-				friendsCount: data.friends.length
-			};
-		});
+		return this.store.findQuery('friend', params);
 	}
 });

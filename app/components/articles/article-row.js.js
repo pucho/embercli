@@ -10,9 +10,8 @@ export default Ember.Component.extend({
 			this.sendAction('save', article);
 		}
 	},
-	stateChanged: Ember.observer('article.state', function(){
-		var article = this.get('article');
-		if (article.get('isDirty') && !article.get('isSaving')){
+	stateChanged: Ember.observer('model.state', function(){
+		if (this.get('model.isDirty') && !this.get('model.isSaving')){
 			Ember.run.once(this, this.autosave);
 		}
 	}).on('init')

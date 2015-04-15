@@ -2,7 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model: function(){
-		return this.modelFor('friends/show').get('articles');
+		var articles = this.modelFor('friends/show').get('articles');
+		if (articles.get('isFullfilled')) {
+			articles.reload();
+		}
+
+		return articles;
 	},
 	actions: {
 		save: function(model) {

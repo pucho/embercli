@@ -18,10 +18,6 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 app.import('bower_components/picnic/releases/picnic.min.css');
-app.import('bower_components/moment/moment.js');
-
-
-
 app.import('vendor/fontello/fontello.css');
 app.import('vendor/fontello/font/fontello.ttf', {
 	destDir: 'font'
